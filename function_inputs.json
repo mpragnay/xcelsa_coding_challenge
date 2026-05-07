@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "function_name": "has_duplicates",
+    "function": "def has_duplicates(items):\n   \"\"\"Return True if any element appears more than once in items.\"\"\"\n   for i in range(len(items)):\n       for j in range(i + 1, len(items)):\n           if items[i] == items[j]:\n               return True\n   return False"
+  },
+  {
+    "id": 2,
+    "function_name": "two_sum",
+    "function": "def two_sum(nums, target):\n   \"\"\"Return a tuple of indices (i, j) with i < j such that\n   nums[i] + nums[j] == target, or None if no such pair exists.\n   If multiple pairs exist, return the lexicographically smallest (i, j).\"\"\"\n   for i in range(len(nums)):\n       for j in range(i + 1, len(nums)):\n           if nums[i] + nums[j] == target:\n               return (i, j)\n   return None"
+  },
+  {
+    "id": 3,
+    "function_name": "max_subarray_sum",
+    "function": "def max_subarray_sum(arr):\n   \"\"\"Return the maximum sum of any contiguous non-empty subarray of arr.\n   Assumes arr is a non-empty list of numbers.\"\"\"\n   best = arr[0]\n   for i in range(len(arr)):\n       for j in range(i, len(arr)):\n           current = sum(arr[i:j + 1])\n           if current > best:\n               best = current\n   return best"
+  },
+  {
+    "id": 4,
+    "function_name": "reverse_string",
+    "function": "def reverse_string(s):\n   \"\"\"Return the reverse of string s.\"\"\"\n   result = \"\"\n   for ch in s:\n       result = ch + result\n   return result"
+  },
+  {
+    "id": 5,
+    "function_name": "fib",
+    "function": "def fib(n):\n   \"\"\"Return the nth Fibonacci number, where fib(0) = 0 and fib(1) = 1.\n   Defined for n >= 0.\"\"\"\n   if n < 2:\n       return n\n   return fib(n - 1) + fib(n - 2)"
+  },
+  {
+    "id": 6,
+    "function_name": "find_in_sorted",
+    "function": "def find_in_sorted(sorted_list, target):\n   \"\"\"Return the index of target in sorted_list (ascending order), or -1\n   if absent. The caller guarantees sorted_list is sorted ascending.\n   If target appears multiple times, return any matching index.\"\"\"\n   for i, x in enumerate(sorted_list):\n       if x == target:\n           return i\n       if x > target:\n           return -1\n   return -1"
+  },
+  {
+    "id": 7,
+    "function_name": "sum_of_squares",
+    "function": "def sum_of_squares(nums):\n   \"\"\"Return the sum of squares of all elements in nums.\"\"\"\n   total = 0\n   for n in nums:\n       total = total + n * n\n   return total"
+  },
+  {
+    "id": 8,
+    "function_name": "flatten_one_level",
+    "function": "def flatten_one_level(list_of_lists):\n   \"\"\"Concatenate sublists into a single list, preserving order.\"\"\"\n   result = []\n   for sub in list_of_lists:\n       result = result + sub\n   return result"
+  },
+  {
+    "id": 9,
+    "function_name": "count_occurrences",
+    "function": "def count_occurrences(items, target):\n   \"\"\"Return the number of times target appears in items.\"\"\"\n   count = 0\n   for x in items:\n       if x == target:\n           count += 1\n   return count"
+  },
+  {
+    "id": 10,
+    "function_name": "group_by_first_letter",
+    "function": "def group_by_first_letter(words):\n   \"\"\"Return a dict mapping each first letter to a list of words starting\n   with that letter, preserving input order within each group.\n   Empty strings are skipped entirely.\"\"\"\n   result = {}\n   for w in words:\n       if not w:\n           continue\n       key = w[0]\n       if key not in result:\n           result[key] = []\n       result[key].append(w)\n   return result"
+  },
+  {
+    "id": 11,
+    "function_name": "sort_by_priority",
+    "function": "def sort_by_priority(tasks):\n   \"\"\"Return tasks sorted by their 'priority' field (ascending). Tasks\n   with the same priority MUST remain in their original relative order.\n   Each task is a dict with at least a 'priority' key.\"\"\"\n   return sorted(tasks, key=lambda t: t['priority'])"
+  },
+  {
+    "id": 12,
+    "function_name": "safe_average",
+    "function": "def safe_average(numbers):\n   \"\"\"Return the arithmetic mean of numbers, or None if numbers is empty.\"\"\"\n   if not numbers:\n       return None\n   total = 0\n   for n in numbers:\n       total += n\n   return total / len(numbers)"
+  }
+]
