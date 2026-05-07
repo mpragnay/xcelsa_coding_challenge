@@ -1,0 +1,147 @@
+﻿# ---- 1 ----
+def has_duplicates(items):
+   """Return True if any element appears more than once in items."""
+   for i in range(len(items)):
+       for j in range(i + 1, len(items)):
+           if items[i] == items[j]:
+               return True
+   return False
+
+
+
+
+# ---- 2 ----
+def two_sum(nums, target):
+   """Return a tuple of indices (i, j) with i < j such that
+   nums[i] + nums[j] == target, or None if no such pair exists.
+   If multiple pairs exist, return the lexicographically smallest (i, j)."""
+   for i in range(len(nums)):
+       for j in range(i + 1, len(nums)):
+           if nums[i] + nums[j] == target:
+               return (i, j)
+   return None
+
+
+
+
+# ---- 3 ----
+def max_subarray_sum(arr):
+   """Return the maximum sum of any contiguous non-empty subarray of arr.
+   Assumes arr is a non-empty list of numbers."""
+   best = arr[0]
+   for i in range(len(arr)):
+       for j in range(i, len(arr)):
+           current = sum(arr[i:j + 1])
+           if current > best:
+               best = current
+   return best
+
+
+
+
+# ---- 4 ----
+def reverse_string(s):
+   """Return the reverse of string s."""
+   result = ""
+   for ch in s:
+       result = ch + result
+   return result
+
+
+
+
+# ---- 5 ----
+def fib(n):
+   """Return the nth Fibonacci number, where fib(0) = 0 and fib(1) = 1.
+   Defined for n >= 0."""
+   if n < 2:
+       return n
+   return fib(n - 1) + fib(n - 2)
+
+
+
+
+# ---- 6 ----
+def find_in_sorted(sorted_list, target):
+   """Return the index of target in sorted_list (ascending order), or -1
+   if absent. The caller guarantees sorted_list is sorted ascending.
+   If target appears multiple times, return any matching index."""
+   for i, x in enumerate(sorted_list):
+       if x == target:
+           return i
+       if x > target:
+           return -1
+   return -1
+
+
+
+
+# ---- 7 ----
+def sum_of_squares(nums):
+   """Return the sum of squares of all elements in nums."""
+   total = 0
+   for n in nums:
+       total = total + n * n
+   return total
+
+
+
+
+# ---- 8 ----
+def flatten_one_level(list_of_lists):
+   """Concatenate sublists into a single list, preserving order."""
+   result = []
+   for sub in list_of_lists:
+       result = result + sub
+   return result
+
+
+
+
+# ---- 9 ----
+def count_occurrences(items, target):
+   """Return the number of times target appears in items."""
+   count = 0
+   for x in items:
+       if x == target:
+           count += 1
+   return count
+
+
+
+
+# ---- 10 ----
+def group_by_first_letter(words):
+   """Return a dict mapping each first letter to a list of words starting
+   with that letter, preserving input order within each group.
+   Empty strings are skipped entirely."""
+   result = {}
+   for w in words:
+       if not w:
+           continue
+       key = w[0]
+       if key not in result:
+           result[key] = []
+       result[key].append(w)
+   return result
+
+
+# ---- 11 ----
+def sort_by_priority(tasks):
+   """Return tasks sorted by their 'priority' field (ascending). Tasks
+   with the same priority MUST remain in their original relative order.
+   Each task is a dict with at least a 'priority' key."""
+   return sorted(tasks, key=lambda t: t['priority'])
+
+
+
+
+# ---- 12 ----
+def safe_average(numbers):
+   """Return the arithmetic mean of numbers, or None if numbers is empty."""
+   if not numbers:
+       return None
+   total = 0
+   for n in numbers:
+       total += n
+   return total / len(numbers)
